@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Table</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="./styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="searchWrapper">
+        <div class="showEnteries">Show<select class="selectEnteries" onchange=" displayNumItems(value);">
+            
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+        </select>Countries</div>
+        <div class="Search">
+            <input type="text" class="searchInput" name="search" placeholder="Search Countries" onchange="searchHandler()">
+        </div>
+
+    </section>
+
+    <section>
+        <div class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                       
+                        <th>Country</th>
+                        <th>Capital</th>
+                        
+                        
+                        <th>Area 
+                            <span class="smalltext">in Kms</span>
+                            </th>
+                            <th>Currency</th>
+                            <th>Flag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="displayenteries"><p>Showing <span class="count"></span> of <span class="dataLength"></span> Countries</p></div>
+        <div class="pagina">
+            <button class="left"><<</button>
+            
+            <ul class="pagination">
+               
+            </ul>
+            <button class="right">>></botton>
+        </div>
+    </section>
+<script src ="./scripts/table.js"></script>
+</body>
+
+</html>
