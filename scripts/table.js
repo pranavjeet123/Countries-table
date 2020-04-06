@@ -131,13 +131,28 @@ let displayNumItems = function (value) {
     }
 };
 
+/**
+ * SEARCH THE HTML table.
+ * 
+ * @param {searchInput} format the input as first letter capital and all small letters matching with API country name
+ * @param {filteredCountries} filtered Array having row value of required country
+ *  Alert to provide user about spelling mistake and to provide only country name as such.
+ */
 
 
 let searchHandler = () => {
-    let searchInput = document.querySelector(".searchInput").value;
-    console.log(searchInput);
+    let input = document.querySelector(".searchInput").value;
+    let searchInput = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
     let displayData = this.data;
-console.log(displayData);
+
+    let filteredCountries = displayData.filter(function (e) {
+        return e.name === searchInput;
+    });
+    if (filteredCountries.length === 0) {
+        alert("OOops! Please enter only country name with correct spelling Or May be record not found- Contact Pranavjeet");
+
+    }
+    populateCountries(filteredCountries);
 }
 
 
@@ -200,19 +215,18 @@ function pagination(value, data) {
     while (pagenationUl.firstChild) {
         pagenationUl.removeChild(pagenationUl.firstChild);
     }
-    console.log(value);
     let pageNumbers = [];
     for (let i = 1; i <= Math.ceil(data / value); i++) {
         pageNumbers.push(i);
     }
-    if(pageNumbers.length===50){
-        let pageDisplay10=pageNumbers.splice(0,10);
-        pageDisplay10.forEach((item)=>{
+    if (pageNumbers.length === 50) {
+        let pageDisplay10 = pageNumbers.splice(0, 10);
+        pageDisplay10.forEach((item) => {
             let li = document.createElement("li");
             li.textContent = item;
             pagenationUl.appendChild(li);
         })
-       
+
     }
 }
 
